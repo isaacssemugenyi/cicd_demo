@@ -1,23 +1,27 @@
 pipeline {
 	agent any
+	environment {
+		CI 'true'
+	}
 	stages{
 		stage("Build"){
 			steps{
-				echo 'Welcome to jenkins pipeline'
-                npm install
+				echo 'Building application'
+                sh 'npm install'
 			}
 		}
 				
 		stage("Test"){
 			steps{
-				'./test/test.js'
+				echo 'Testing application'
+				sh './test/test.js'
 			}
 		}
 
-		stage("three"){
+		stage("Deliver"){
 			steps {
-				echo "welcome"
-                npm build
+				echo "working on deliver"
+                sh './test/deploy.sh'
 			}
 		}
 	}
