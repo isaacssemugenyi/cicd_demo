@@ -17,12 +17,5 @@ pipeline {
 				sh './test/test.js'
 			}
 		}
-
-		stage("Deliver"){
-			steps {
-				echo "working on deliver"
-                sh './test/deploy.sh'
-			}
-		}
 	}
 }
